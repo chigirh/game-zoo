@@ -5,7 +5,7 @@ object CageBuyer {
         id = id,
         code = this.code,
         name = this.name,
-        maxSize = this.size,
+        limitSize = this.size,
         limitWeight = this.size,
     )
 }

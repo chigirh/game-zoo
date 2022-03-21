@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component
 
 @Component
 class CageService(
-    val animalInCageRepository: AnimalInCageRepository,
+    private val animalInCageRepository: AnimalInCageRepository,
 ) {
-    fun canAnimalCaged(cage: Cage, anima: Animal) {
+    fun putAnimal(cage: Cage, anima: Animal) {
         val existsCage = animalInCageRepository.fetchCageBy(anima)
         if (existsCage != null) {
             throw BusinessException("${existsCage.id}の檻にすでに入っています。", null, ErrorCode.ALREADY_EXISTS)
         }
 
-        if (cage.maxSize <= cage.animals.size) {
+        if (cage.limitSize <= cage.animals.size) {
             throw BusinessException(
-                "${cage.id}の檻にこれ以上動物を入れることができません。max size:${cage.maxSize}",
+                "${cage.id}の檻にこれ以上動物を入れることができません。max size:${cage.limitSize}",
                 null,
                 ErrorCode.PERMISSION_DENIED
             )

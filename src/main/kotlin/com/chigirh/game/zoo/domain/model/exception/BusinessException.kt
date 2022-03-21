@@ -7,6 +7,7 @@ open class BusinessException(
 ) : RuntimeException(message, cause)
 
 enum class ErrorCode {
+    BAD_REQUEST,
     ALREADY_EXISTS,
     NOT_FOUND,
     PERMISSION_DENIED,

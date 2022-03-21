@@ -22,9 +22,9 @@ class CageBuyPage(
     private val fetchCageCatalogUseCase: FetchCageCatalogUseCase,
     private val factory: ChoiceFactory,
 ) : PageBase(systemProfile, userProfile, userSettings, commandManager) {
-    override fun description() = "どの檻を買いますか？"
+    override fun description(input: String) = "どの檻を買いますか？"
 
-    override fun getChoiceBox(): List<Choice> {
+    override fun getChoiceBox(input: String): List<Choice> {
         val catalogs = fetchCageCatalogUseCase(InputImpl()).models
         return catalogs.mapIndexed(this::createChoice).toList()
     }

@@ -10,4 +10,6 @@ interface AnimalInCageRepository {
     fun insert(cage: Cage, animal: Animal)
     fun delete(cage: Cage, animal: Animal)
     fun fetchCageBy(animal: Animal): Cage?
+    fun fetchAnimalsBy(cageId: Int): List<Animal>
+    fun fetchByNotInCage(): List<Animal>
 }

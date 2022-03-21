@@ -15,7 +15,7 @@ class ShopRootPage(
     override val userSettings: UserSettings,
     override val commandManager: CommandManager,
 ) : PageBase(systemProfile, userProfile, userSettings, commandManager) {
-    override fun description() = "いらっしゃいませ。何をしますか?"
+    override fun description(input: String) = "いらっしゃいませ。何をしますか?"
 
     override fun getId() = CommandId.P_SHOP_ROOT
 }

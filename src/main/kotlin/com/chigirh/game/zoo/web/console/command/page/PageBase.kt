@@ -30,10 +30,10 @@ abstract class PageBase(
 
             Display("")
             // show header,description
-            Display(header())
-            Display(description())
+            Display(header(input))
+            Display(description(input))
 
-            val choiceBox = getChoiceBox()
+            val choiceBox = getChoiceBox(input)
 
             // selection display.
             choiceBox.sortedBy { it.index }.forEach { Display(it.show()) }
@@ -52,9 +52,9 @@ abstract class PageBase(
         }
     }
 
-    protected open fun header() = ("user name:${userProfile.userName},money:${userProfile.money()}z")
+    protected open fun header(input: String) = ("user name:${userProfile.userName},money:${userProfile.money()}z")
 
-    abstract fun description(): String
+    abstract fun description(input: String): String
 
     private fun entryFailure(entryValue: String?) {
         if (StringUtils.equals(entryValue, RETURN_VALUE)) {
@@ -62,7 +62,7 @@ abstract class PageBase(
         } else Display("bad entry for $entryValue")
     }
 
-    protected open fun getChoiceBox() = commandManager.getChoiceBox(getId())
+    protected open fun getChoiceBox(input: String) = commandManager.getChoiceBox(getId())
 
     companion object {
         const val RETURN_VALUE = "r"

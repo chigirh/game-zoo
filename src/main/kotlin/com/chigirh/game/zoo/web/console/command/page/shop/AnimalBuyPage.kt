@@ -22,9 +22,9 @@ class AnimalBuyPage(
     private val fetchAnimalCatalogUseCase: FetchAnimalCatalogUseCase,
     private val factory: ChoiceFactory,
 ) : PageBase(systemProfile, userProfile, userSettings, commandManager) {
-    override fun description() = "どの動物を買いますか？"
+    override fun description(input: String) = "どの動物を買いますか？"
 
-    override fun getChoiceBox(): List<Choice> {
+    override fun getChoiceBox(input: String): List<Choice> {
         val catalogs = fetchAnimalCatalogUseCase(InputImpl()).models
         return catalogs.mapIndexed(this::createChoice).toList()
     }

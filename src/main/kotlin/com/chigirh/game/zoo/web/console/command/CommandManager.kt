@@ -20,7 +20,8 @@ class CommandManager(
         CommandId.P_ROOT -> {
             listOf(
                 factory(1, "ショップへ行く", CommandId.P_SHOP_ROOT),
-                factory(2, "q", "quit", CommandId.L_QUIT),
+                factory(2, "動物園へ行く", CommandId.P_ZOO_ROOT),
+                factory(3, "q", "quit", CommandId.L_QUIT),
             )
         }
 
@@ -28,6 +29,12 @@ class CommandManager(
             listOf(
                 factory(1, "檻を買う", CommandId.P_SHOP_CAGE_BUY),
                 factory(2, "動物を買う", CommandId.P_SHOP_ANIMAL_BUY),
+            )
+        }
+
+        CommandId.P_ZOO_ROOT -> {
+            listOf(
+                factory(1, "檻に動物を入れる。", CommandId.P_ZOO_PUT_ROOT),
             )
         }
         else -> throw IllegalArgumentException()
@@ -57,6 +64,18 @@ class ChoiceFactory {
         value = value,
         label = label,
         command = ApplicationContextHolder.getCommand(commandId)
+    )
+
+    operator fun invoke(
+        index: Int,
+        value: String,
+        label: String,
+        command: Command,
+    ) = Choice(
+        index = index,
+        value = value,
+        label = label,
+        command = command,
     )
 }
 

@@ -1,0 +1,62 @@
+cage:
+  normal:
+    name: 普通の檻
+    capacity:
+      size: 5
+      weight: 200
+    price: 1000
+  small:
+    name: 小さな檻
+    capacity:
+      size: 2
+      weight: 100
+    price: 500
+  large:
+    name: 広い檻
+    capacity:
+      size: 10
+      weight: 500
+    price: 2000
+  strong:
+    name: 頑丈な檻
+    capacity:
+      size: 5
+      weight: 1000
+    price: 2000
+
+animal:
+  dog:
+    name: 犬
+    weight:
+      min: 5
+      max: 10
+    hourlyWageBase: 10
+    price: 300
+  cat:
+    name: 猫
+    weight:
+      min: 3
+      max: 5
+    hourlyWageBase: 10
+    price: 300
+  horse:
+    name: 馬
+    weight:
+      min: 30
+      max: 50
+    hourlyWageBase: 10
+    price: 1000
+  giraffe:
+    name: キリン
+    weight:
+      min: 50
+      max: 100
+    hourlyWageBase: 10
+    price: 3000
+  lion:
+    name: ライオン
+    weight:
+      min: 70
+      max: 150
+    hourlyWageBase: 10
+    price: 10000
